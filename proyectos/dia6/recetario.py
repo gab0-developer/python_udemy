@@ -94,6 +94,16 @@ match menu:
         nueva_receta = f'{ruta_categoria / nombre_nueva_receta.lower()}.txt'
         print(f'{CrearArchivo(nueva_receta,nombre_nueva_receta,contenido_nueva_receta)}')
         
+    case 3:
+        print('**********************CREAR CARPETA DE CATEGORIAS**********************')
+        nombre_carpeta= str(input('INGRESAR NOMBRE DE SU NUEVA CATEGORIA DE RECETAS: '))
+        create_carpeta = os.mkdir(f'{ruta/nombre_carpeta}')
+        print(create_carpeta)
+    case 4:
+        print('**********************CREAR CARPETA DE CATEGORIAS**********************')
+        nombre_carpeta= str(input('INGRESAR NOMBRE DE SU NUEVA CATEGORIA DE RECETAS: '))
+        create_carpeta = os.mkdir(f'{ruta/nombre_carpeta}')
+        print(create_carpeta)
     case 6:
         print('SALIO DEL SISTEMA')
     case _:
