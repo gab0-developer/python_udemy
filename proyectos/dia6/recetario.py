@@ -2,36 +2,22 @@ import os
 from pathlib import Path
 from shutil import rmtree #rmtree: orrar una carpeta que contiene archivos u otros directorios dentro de ella
 
-# ruta = Path('C:/Users/Gabriel/OneDrive/Desktop/python_udemy/proyectos/dia6/Recetas')
 ruta = Path(__file__).parent / 'Recetas'
-print(ruta)
 
-getcwd= os.getcwd() #obtener la ruta actual de las recetas
-# *chdir: change directory -> cambiar de directorio
-chdir= os.chdir('C:\\Users\\Gabriel\\OneDrive\\Desktop\\UNEXCA')
-
-bienvenda = 'HOLA! BIENVENID@ A NUESTRO RECETARIO' 
 recetas= os.listdir(ruta)
 cantidad_recetas = len(recetas)
 
 opciones = ['VER RECETAS','CREAR NUEVA RECETA','CREAR NUEVA CATEGORIA','ELIMINAR RECETA','ELIMINAR CATEGORIA', 'SALIR DEL SISTEMA']
 cantidad_opciones = len(opciones)
-print(recetas)
 
-menu = 0
 print('\n')
-print(f'*******************{bienvenda}************************')
+print('*' * 50)
+print('*'* 10 + 'HOLA! BIENVENID@ A NUESTRO RECETARIO'+ '*'*10)
+print('*' * 50 + '\n')
 print(f'*******************CANTIDAD DE RECETAS DISPOBIBLES: {cantidad_recetas}  ************************ \n')
+print(f'*******************SELECCIONAR UNA DE LAS SIGUIENTES OPCIONES: ************************ \n')
 
-print(f'*******************SELECCIONAR UNA OPCION: ************************ \n')
-
-# def lista_opciones():
-#     for opcion in range(cantidad_opciones):
-#         print(f'{opcion + 1} : {opciones[opcion]}')
-#     opcion_menu = int(input('----SELECCIONAR UNA DE LAS OPCIONES SEGUN SU NUMERO: '))
-#     return opcion_menu
-# menu = lista_opciones()
-    
+# FUNCIONES 
 def categorias():
     print('*******************SELECCIONAR CATEGORIA DE RECETAS************************')
     lista_categorias = []
@@ -40,22 +26,18 @@ def categorias():
         lista_categorias.append(categorias)
         print(categorias)
     # return lista_categorias
-# categorias()
 
 def SeleccionarCategoria(numero_categoria):
     for i in range(cantidad_recetas):
         categoria_seleccionada = f'{recetas[numero_categoria]}'
     return categoria_seleccionada
-# print(SeleccionarCategoria(numero_categoria))
 
 def LeerArchvo(url):
-    # 'C:/Users/Gabriel/OneDrive/Desktop/python_udemy/proyectos/dia6/Recetas/Carnes/Matambre a la Pizza.txt'
     with open(Path(url),'r') as archivo:
                 contenido = archivo.read()
                 return f'\n CONTENIDO DE LA RECETA: \n ----------------\n  {contenido} \n ----------------\n'
 
 def CrearArchivo(url,nombre,contenido):
-    # 'C:/Users/Gabriel/OneDrive/Desktop/python_udemy/proyectos/dia6/Recetas/Carnes/Matambre a la Pizza.txt'
     with open(Path(url),'w', encoding='utf-8') as archivo:
         contenido = archivo.write(contenido)
         return f'\n NUEVA RECETA: ----------------{nombre}----------------\n'
@@ -72,18 +54,20 @@ def EliminarCategoria (url,name_category):
     rmtree(url)
     return f'\n SE ELIMINO LA CATEGORIA: {name_category.upper()}\n'
 
+
 while True :
-    
+    print('\n' +'*'* 10 + 'INDICE DE OPCIONES'+ '*'*10 + '\n')
     for opcion in range(cantidad_opciones):
         print(f'{opcion + 1} : {opciones[opcion]}')
 
     opcion = int(input('\n SELECCIONAR UNA DE LAS OPCIONES (1-6): '))
     match opcion:
         case 1:
+            print('**********************LEER RECETAS**********************')
             categorias()
             numero_categoria= int(input('SELECCIONAR UNA CATEGORIA DE RECETA POR SU NUMERO: '))
             categoria_seleccionada = SeleccionarCategoria(numero_categoria)
-            print(f'SELECCIONASTE: {categoria_seleccionada.upper()} Y SUS RECETAS SON: ')
+            print(f' \n SELECCIONASTE: {categoria_seleccionada.upper()} Y SUS RECETAS SON: \n')
             ruta_categoria = ruta / categoria_seleccionada
             lista_archivos= os.listdir(ruta_categoria) 
             cantidad_lista_archivos = lista_archivos
@@ -145,4 +129,4 @@ while True :
             print('SALIO DEL SISTEMA...')
             break
         case _:
-                print('NO COINCIDE CON NINGUNO DE LOS DATOS')
+                print('LA OPCION NO COINCIDE CON NINGUNO DE LOS DATOS')
