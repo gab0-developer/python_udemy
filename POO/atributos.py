@@ -4,6 +4,7 @@ class Pajaro:
     
     # metodo constructor, se define como "__init__"
         # selft: palabra clave y obligatoria. Representa la instancia del objeto/clase que vaya a ser creado
+            # Ademas self permite Acceder a atributos y métodos de la instancia:
     def __init__(self,color): # definimos atributo de instancia en este caso "color"
         # definimos un parametro  "micolor" que contiene el atributo de instancia
         self.micolor= color
