@@ -18,8 +18,9 @@ print(Pajaro.__base__) #resultado : <class '__main__.Animal'> indica que se here
 # comprobar si hay sub clases
 print(Animal.__subclasses__()) #resultao : [<class '__main__.Pajaro'>] indica que la subclase es Pajaro ya que esta hereda Animal
 
-# instancias objeto(class)
+#1. instanciar objeto(class)
 pajaro = Pajaro(2,'verde')
+# 2.OBTENER LOS METODOS Y/O ATRIBUTOS
 print(pajaro.edad)
 print(pajaro.color)
 # obtener metodo heredado
