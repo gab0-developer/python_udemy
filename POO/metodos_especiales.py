@@ -13,8 +13,11 @@ class CD:
         return self.autor
     # __del__(): Eliminar objeto (la clase ya instanciada)
     def __del__(self):
-        return 'se ha eliminado la clase CD'
+        print("Libro eliminado")  # Imprimimos el mensaje, no hacemos return
     
 # instanciar mi clase
 mi_cd = CD('gabriel','triunfador',24)
 print(mi_cd) #result: album : triunfador de gabriel con 24 canciones
+
+# elminar calse ya instanciada 
+# del mi_cd
